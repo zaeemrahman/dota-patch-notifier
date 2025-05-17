@@ -1,0 +1,10 @@
+# state file
+last_gid.txt
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+
+# VSCode, macOS
+.vscode/
+.DS_Store
