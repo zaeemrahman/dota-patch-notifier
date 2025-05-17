@@ -2,7 +2,7 @@ import os, requests
 from discord import SyncWebhook
 
 # ↓ paste your webhook URL between the quotes ↓
-WEBHOOK_URL = "https://discord.com/api/webhooks/1373261614727561266/GJW_kChtKTdmi8F6iiNljAHOh9WJIHXP3xVF96zNSop6asZnXf5vzPRfCHclWeG9D8Yh"
+WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL")
 GID_FILE    = "last_gid.txt"
 API_URL     = "https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/"
 
