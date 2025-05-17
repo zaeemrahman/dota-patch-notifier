@@ -1,31 +1,27 @@
-# Dota Patch Notifier
+Dota Patch Notifier
+Fetches the latest Dota 2 patch notes from the Steam API and posts them to a Discord channel via webhook.
 
-A small Python script that fetches the latest Dota 2 patch notes from Steam’s API and posts them to a Discord channel via webhook.
+Setup
+Install Python 3 and pip
 
-## Setup
+Install dependencies:
+pip install requests discord.py
 
-1. Install Python 3 and `pip`.
-2. `pip install requests discord.py`
-3. Edit `dota_patch_bot.py`, pasting your Discord webhook URL.
-4. Create an empty `last_gid.txt` in the same folder.
+Ensure the script reads the webhook URL from the DISCORD_WEBHOOK_URL environment variable (no hard-coded URLs)
 
-## Usage
+Create an empty file named last_gid.txt in this folder
 
-```powershell
-python .\dota_patch_bot.py
+Scheduling (Windows Task Scheduler)
+Set your webhook URL as a user environment variable:
+setx DISCORD_WEBHOOK_URL "https://discord.com/api/webhooks/<NEW_ID>/<NEW_TOKEN>"
+Restart PowerShell to load it
 
-## Scheduling (using python to run program with no terminal window popping up)
+In Task Scheduler, create or edit a task with:
+• Program/script: C:\Users<You>\AppData\Local\Programs\Python\Python39\pythonw.exe
+• Arguments: C:\Users<You>\dota_patch_bot\dota_patch_bot.py
+• Start in: C:\Users<You>\dota_patch_bot
+• Trigger: Daily, repeat every 1 hour indefinitely
 
-- Create new task in Task Scheduler
+Run the task once to confirm it posts silently to Discord
 
-- **Program:**  
-  `C:\Users\YourName\AppData\Local\Programs\Python\Python312\pythonw.exe`
-
-- **Arguments:**  
-  `C:\Users\YourName\dota_patch_bot\dota_patch_bot.py`
-
-- **Start in:**  
-  `C:\Users\YourName\dota_patch_bot`
-
-- **Trigger:**  
-  Repeat every **1 hour** (Indefinitely)
+Note: Using pythonw.exe prevents any console window from appearing.
