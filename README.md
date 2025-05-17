@@ -14,8 +14,18 @@ A small Python script that fetches the latest Dota 2 patch notes from Steam’s 
 ```powershell
 python .\dota_patch_bot.py
 
-## Scheduling
+## Scheduling (using python to run program with no terminal window popping up)
 
-- **Program:** `powershell.exe`  
-- **Arguments:** `-NoProfile -WindowStyle Hidden -Command "cd 'C:\Users\YourName\dota_patch_bot'; python .\dota_patch_bot.py"`  
-- **Trigger:** repeat every 1 hour (Indefinitely)
+- Create new task in Task Scheduler
+
+- **Program:**  
+  `C:\Users\YourName\AppData\Local\Programs\Python\Python312\pythonw.exe`
+
+- **Arguments:**  
+  `C:\Users\YourName\dota_patch_bot\dota_patch_bot.py`
+
+- **Start in:**  
+  `C:\Users\YourName\dota_patch_bot`
+
+- **Trigger:**  
+  Repeat every **1 hour** (Indefinitely)
